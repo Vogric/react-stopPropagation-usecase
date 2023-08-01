@@ -1,27 +1,27 @@
-# React + TypeScript + Vite
+### Understanding Event Bubbling and Stop Propagation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🫧 Event Bubbling:
 
-Currently, two official plugins are available:
+When you click on an element inside another element, like clicking on a button within a div, the click event doesn't just trigger on the button; it also "bubbles up" through its parent elements. So, the button's click event fires first, then its parent's click event, and so on up the DOM tree 🌳. This process is called event bubbling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+----------------------------------------------------------------
 
-## Expanding the ESLint configuration
+- ### Issue:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Without stopPropagation(), clicking the child element would trigger both the child and the parent event handlers.
 
-- Configure the top-level `parserOptions` property like this:
+> #### 🎥 Problem
+> #### *See the code in branch:* problem
+https://github.com/Vogric/react-stopPropagation-usecase/assets/53317134/9c6721ab-5234-4d67-ab81-5bb74148a13e
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+-------------------------
+- ### Solution:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+stopPropagation() 🚫:
+Now, when you click the child element, the parent's click event won't be triggered anymore
+> #### 🎥 Solution
+> #### *See the code in branch:* solution
+https://github.com/Vogric/react-stopPropagation-usecase/assets/53317134/dff3abc0-53d6-42aa-9bed-3c6e5e403c03
+
+
+
