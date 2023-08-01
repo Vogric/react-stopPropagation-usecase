@@ -1,4 +1,4 @@
-import { CSSProperties, FC, memo, useState } from "react";
+import { CSSProperties, FC, MouseEvent, memo, useState } from "react";
 import {
   messageStyleWithAnimation,
   messageStyleWithAnimationChild,
@@ -6,7 +6,9 @@ import {
 
 const Child: FC = memo((): JSX.Element => {
   const [showMessage, setShowMessage] = useState<boolean>(false);
-  const handleChildClick = (): void => {
+
+  const handleChildClick = (e: MouseEvent<HTMLElement>): void => {
+    e.stopPropagation();
     console.log("Child clicked");
     setShowMessage(true);
     setTimeout(() => {

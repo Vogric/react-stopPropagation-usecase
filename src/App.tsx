@@ -1,5 +1,5 @@
 import { CSSProperties, FC } from "react";
-import Parent from "./comps/Child/Parent";
+import Parent from "./comps/Parent";
 
 const App: FC = (): JSX.Element => (
   <div style={container}>

@@ -1,9 +1,9 @@
 import { CSSProperties, FC, useState } from "react";
-import Child from "..";
+import Child from "../Child";
 import {
   messageStyleWithAnimation,
   messageStyleWithoutAnimation,
-} from "../../style";
+} from "../style";
 
 const Parent: FC = (): JSX.Element => {
   const [showMessage, setShowMessage] = useState<boolean>(false);
